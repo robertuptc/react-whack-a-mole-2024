@@ -1,10 +1,18 @@
 import './Mole.css'
 import MoleIcon from './Mole.svg'
 
-function Mole(props) {
+function Mole({ isVisible, points, setPoints }) {
+
+  const handleClick = (e) => {
+    setPoints(points + 1)
+  }
   return (
     <div className="den">
-      <img src={MoleIcon} className="Mole" alt="Mole" />
+      {
+        isVisible ?
+        <img src={MoleIcon} className="Mole" alt="Mole" onClick={(e) => handleClick(e)} /> :
+        null
+      }
     </div>
   )
 }
